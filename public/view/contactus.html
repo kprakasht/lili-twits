@@ -1,6 +1,6 @@
-<!-- 				
+<!--        
 <div class='shilpa-container' ng-controller='contactus-controller'>
-	
+  
    <div style="float: left;margin: 40px">
     <p><label > First Name <input id="firstname" type="text" ng-model="model.firstname"></input></label></p>
     <p><label > Last Name <input id="lastname" type="text" ng-model="model.lastname"></input></label></p>
@@ -16,7 +16,7 @@
         </div>
     </p>
 </div>
-    <div style="float: right;margin-right: 40px">	
+    <div style="float: right;margin-right: 40px"> 
  <p>Our Office</p>
  <p>Lili Twits</p>
  <p>address1</p>
@@ -30,7 +30,7 @@
             <h3 class="page-heading">&nbsp;</h3>
             <div class="col-md-12">
 
-                    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+                    <form name="myForm" class="well form-horizontal" action=" " method="post"  id="contact_form">
                 <fieldset>
 
                 <!-- Form Name -->
@@ -43,7 +43,9 @@
                   <div class="col-md-4 inputGroupContainer">
                   <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                  <input  name="first_name" placeholder="First Name" class="form-control"  type="text" data-ng-model="model.firstname">
+                  <input  name="first_name" placeholder="First Name" class="form-control"  type="text" data-ng-model="model.firstname" required>
+                  <span style="color: red" ng-show="myForm.first_name.$invalid">
+                  <span ng-show="myForm.first_name.$error.required"> First Name Required</span>
                     </div>
                   </div>
                 </div>
@@ -53,7 +55,9 @@
                   <div class="col-md-4 inputGroupContainer">
                   <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                  <input  name="last_name" placeholder="Last Name" class="form-control"  type="text" data-ng-model="model.lastname">
+                  <input  name="last_name" placeholder="Last Name" class="form-control"  type="text" data-ng-model="model.lastname" required>
+                  <span style="color: red" ng-show="myForm.last_name.$invalid">
+                  <span ng-show="myForm.last_name.$error.required"> Last Name Required</span>
                     </div>
                   </div>
                 </div>
@@ -63,7 +67,9 @@
                     <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                  <input name="email" placeholder="E-Mail Address" class="form-control"  type="text" data-ng-model="model.email">
+                  <input name="email" placeholder="E-Mail Address" class="form-control"  type="text" data-ng-model="model.email" required>
+                  <span style="color: red" ng-show="myForm.email.$invalid">
+                  <span ng-show="myForm.email.$error.required"> Email Required</span>
                     </div>
                   </div>
                 </div>
@@ -100,7 +106,9 @@
                     <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                  <input name="city" placeholder="city" class="form-control"  type="text" data-ng-model="model.city">
+                  <input name="city" placeholder="city" class="form-control"  type="text" data-ng-model="model.city" required>
+                  <span style="color:red" ng-show="myForm.city.$invalid">
+                  <span ng-show="myForm.city.$error.required">Please enter city name </span>
                     </div>
                   </div>
                 </div>
@@ -126,11 +134,13 @@
                 </div>
 
                 <div class="form-group">
-                  <label class="col-md-4 control-label">Project Description</label>
+                  <label class="col-md-4 control-label">Query/Question</label>
                     <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                            <textarea class="form-control" name="comment" placeholder="Project Description" data-ng-model="model.comment"></textarea>
+                            <textarea class="form-control" name="comment" placeholder="Project Description" data-ng-model="model.comment" required></textarea>
+                            <span style="color:red" ng-show="myForm.comment.$invalid">
+                  <span ng-show="myForm.comment.$error.required">Please type your query/clarification </span>
                   </div>
                   </div>
                 </div>
@@ -145,7 +155,7 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label"></label>
                   <div class="col-md-4">
-                    <button data-ng-click="submitClicked()" type="button" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>&nbsp;
+                    <button data-ng-click="submitClicked()" ng-disabled="myForm.first_name.$invalid || myForm.email.$invalid || myForm.last_name.$invalid || myForm.city.$invalid|| myForm.comment.$invalid " type="button" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>&nbsp;
                     <button data-ng-click="clearClicked()" type="button" class="btn btn-warning" >Clear <span class="glyphicon glyphicon-send"></span></button>
                   </div>
                 </div>
