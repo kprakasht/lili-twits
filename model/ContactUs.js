@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/newdata');
+mongoose.connect('mongodb://ec2-52-91-43-38.compute-1.amazonaws.com:27017/newdata');
 
 var ContactUsSchema = mongoose.Schema({
     firstname: String,
