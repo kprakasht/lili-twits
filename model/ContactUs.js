@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://ec2-52-91-43-38.compute-1.amazonaws.com:27017/newdata');
-//mongoose.connect('mongodb://localhost:27017/newdata');
+//mongoose.connect('mongodb://ubuntu@ec2-54-89-39-27.compute-1.amazonaws.com:27017/newdata');
+mongoose.connect('mongodb://localhost/lilitwits');
 
 var ContactUsSchema = mongoose.Schema({
     firstname: String,
